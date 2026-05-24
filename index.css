@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+
+:root{
+    --background-color: #252525;
+    --text-color: white;
+    --font-face:  "Noto Sans TC";
+    --clock-font-height: 50vh;
+    --element-font-size: 3vh;
+}
+
+div h1{
+    margin: 0;
+}
+
+body{
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-face), sans-serif;
+}
+
+hr{
+    height: 0.3vh;
+    background-color: white;
+    border-radius: 0.15vh;
+}
+
+h1.clock{
+    font-size: var(--clock-font-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+}
+
+.block{
+    width: 25%;
+    position: absolute;
+    font-size: var(--element-font-size);
+    text-align: center;
+}
+
+.date{
+    left: 25%;
+    top: 25%;
+    transform: translate(-50%,-100%);
+}
+
+.countdown{
+    top: 25%;
+    right: 25%;
+    transform: translate(50%,-100%);
+}
+
+.subject{
+    left: 25%;
+    bottom: 25%;
+    transform: translate(-50%,115%);
+}
+
+.subject input{
+    font-size:5vh;
+    position: relative;
+    margin: 0;
+    left: 50%;
+    top: -50%;
+    transform: translateX(-50%);
+    background-color: transparent;
+    text-align: center;
+    color: white;
+    border: none;
+}
+
+.stopwatch{
+    bottom: 25%;
+    right: 25%;
+    transform: translate(50%,100%);
+}
