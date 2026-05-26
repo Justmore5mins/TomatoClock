@@ -16,6 +16,8 @@ window.onload = function(){
         date.textContent = `${mm} ${dd}`;
     }
 
+    //-----------------------------
+
     let hasElapsed = 0;
     let StartTime = new Date();
     let running = true;
@@ -71,10 +73,31 @@ window.onload = function(){
         reset();
     });
 
+    //-----------------------------------
+    const dayCounter = document.getElementById("countdown");
+    const targetDateEl = document.getElementById("TargetDate");
+    let targetDate = new Date("2027-01-18");
+    
+    function updateDayCounter(){
+        dayCounter.textContent = Math.ceil((targetDate - new Date()) / (1000 * 60 * 60 * 24));
+    }
+
+    dayCounter.addEventListener('click', () => {
+        targetDateEl.showPicker?.() || targetDate.click();
+    });
+
+    targetDateEl.addEventListener('change', () => {
+        if (!targetDateEl.value) return;
+        targetDate = new Date(targetDateEl.value + 'T00:00:00');
+        updateDayCounter();
+    });
+
     updateClock();
     updateDate();
     updateStopwatch();
+    updateDayCounter();
     setInterval(updateClock, 1000);
     setInterval(updateStopwatch, 1000);
     setInterval(updateClock, 60000);
+    setInterval(updateDayCounter, 60000);
 }
